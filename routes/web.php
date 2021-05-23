@@ -13,11 +13,16 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+// Voor bezoekers
+Route::view('/', 'web.sections.static.home');
+
 
 // Authenticatie voor beheerders
 require __DIR__ . '/auth.php';
 Route::view('/dashboard', 'dashboard')->middleware(['auth'])->name('dashboard');
 
+
+
+// Oefeningen en testjes
+Route::view('/welcome', 'web.sections.static.welcome');
 });
