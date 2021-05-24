@@ -31,7 +31,7 @@
                 <form method="POST" action="{{ route('logout') }}" class="logoutButton">
                     @csrf
 
-                    <x-responsive-nav-link :href="route('logout')"
+                    <x-auth.responsive-nav-link :href="route('logout')"
                                            onclick="event.preventDefault();
                                            this.closest('form').submit();">
                         {{ __('Log Out') }}

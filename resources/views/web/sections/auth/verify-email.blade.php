@@ -1,8 +1,8 @@
 <x-guest-layout>
-    <x-auth-card>
+    <x-auth.auth-card>
         <x-slot name="logo">
             <a href="/">
-                <x-application-logo class="w-20 h-20 fill-current text-gray-500" />
+                <x-auth.application-logo class="w-20 h-20 fill-current text-gray-500" />
             </a>
         </x-slot>
 
@@ -21,7 +21,7 @@
                 @csrf
 
                 <div>
-                    <x-button>
+                    <x-auth.button>
                         {{ __('Resend Verification Email') }}
                     </x-button>
                 </div>
