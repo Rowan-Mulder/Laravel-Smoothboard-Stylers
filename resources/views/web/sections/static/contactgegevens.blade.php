@@ -15,6 +15,12 @@
         ]
     ];
 @endphp
+
+@push('styles')
+    {{-- asset() vereist een filewatcher 'npm run watch', wat Mix en TailwindCss gebruikt, vanuit webpack.mix.js te configureren, om JS en CSS vanuit /resources te compilen/verplaatsen naar /public --}}
+    <link href="{{ asset('css/contactgegevensTabel.css') }}" type="text/css" rel="stylesheet">
+@endpush
+
 <div class="bd-example">
     <table class="table table-sm table-bordered gegevensTabel" style="line-height: 30px;">
         <thead>
