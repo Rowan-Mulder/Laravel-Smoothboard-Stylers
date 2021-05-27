@@ -49,8 +49,8 @@
 
                 <x-auth.button class="ml-3">
                     {{ __('Log in') }}
-                </x-button>
+                </x-auth.button>
             </div>
         </form>
-    </x-auth-card>
+    </x-auth.auth-card>
 </x-guest-layout>

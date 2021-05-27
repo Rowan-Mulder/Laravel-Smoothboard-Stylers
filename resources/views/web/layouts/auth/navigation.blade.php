@@ -14,7 +14,7 @@
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                     <x-auth.nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                         {{ __('Dashboard') }}
-                    </x-nav-link>
+                    </x-auth.nav-link>
                 </div>
             </div>
 
@@ -42,10 +42,10 @@
                                     onclick="event.preventDefault();
                                                 this.closest('form').submit();">
                                 {{ __('Log Out') }}
-                            </x-dropdown-link>
+                            </x-auth.dropdown-link>
                         </form>
                     </x-slot>
-                </x-dropdown>
+                </x-auth.dropdown>
             </div>
 
             <!-- Hamburger -->
@@ -65,7 +65,7 @@
         <div class="pt-2 pb-3 space-y-1">
             <x-auth.responsive-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                 {{ __('Dashboard') }}
-            </x-responsive-nav-link>
+            </x-auth.responsive-nav-link>
         </div>
 
         <!-- Responsive Settings Options -->
@@ -92,7 +92,7 @@
                             onclick="event.preventDefault();
                                         this.closest('form').submit();">
                         {{ __('Log Out') }}
-                    </x-responsive-nav-link>
+                    </x-auth.responsive-nav-link>
                 </form>
             </div>
         </div>

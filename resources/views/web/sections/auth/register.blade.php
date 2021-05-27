@@ -52,8 +52,8 @@
 
                 <x-auth.button class="ml-4">
                     {{ __('Register') }}
-                </x-button>
+                </x-auth.button>
             </div>
         </form>
-    </x-auth-card>
+    </x-auth.auth-card>
 </x-guest-layout>

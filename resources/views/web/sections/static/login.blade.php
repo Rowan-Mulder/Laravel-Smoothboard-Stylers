@@ -35,7 +35,7 @@
                                            onclick="event.preventDefault();
                                            this.closest('form').submit();">
                         {{ __('Log Out') }}
-                    </x-responsive-nav-link>
+                    </x-auth.responsive-nav-link>
                 </form>
             @endauth
 

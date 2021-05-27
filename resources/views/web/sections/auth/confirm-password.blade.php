@@ -29,8 +29,8 @@
             <div class="flex justify-end mt-4">
                 <x-auth.button>
                     {{ __('Confirm') }}
-                </x-button>
+                </x-auth.button>
             </div>
         </form>
-    </x-auth-card>
+    </x-auth.auth-card>
 </x-guest-layout>
