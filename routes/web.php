@@ -22,6 +22,11 @@ require __DIR__ . '/auth.php';
 Route::view('/dashboard', 'dashboard')->middleware(['auth'])->name('dashboard');
 
 
+Route::fallback(function() {
+    abort(404);
+});
+
+
 
 // Oefeningen en testjes
 Route::view('/welcome', 'web.sections.static.welcome');
