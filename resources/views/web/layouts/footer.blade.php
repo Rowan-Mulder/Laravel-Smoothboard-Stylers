@@ -5,10 +5,10 @@
         </div>
 
 		@if ($active != 'Contact')
-        <div class="m-2">
-            <h3>Contactgegevens</h3>
-            @include('web.sections.static.contactgegevens')
-        </div>
+            <div class="m-2">
+                <h3>Contactgegevens</h3>
+                @include('web.sections.static.contactgegevens')
+            </div>
 		@endif
     </div>
 </footer>
