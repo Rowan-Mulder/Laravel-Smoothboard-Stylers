@@ -15,6 +15,10 @@
     <link href="{{ asset('css/surfboardAnimatie.css') }}" type="text/css" rel="stylesheet">
 @endpush
 
+@section('header')
+    @include('web.layouts.header')
+@endsection
+
 @section('content')
     <div class="text-center">
         <h1 class="display-4 font-weight-bold">Smoothboard Stylers</h1>
@@ -388,4 +392,8 @@
         <p class="card-text">Voor alle recentelijke informatie kun je je aanmelden voor onze driemaandelijkse nieuwsbrieven. Mis geen updates of aanbiedingen en meld je direct aan!</p>
         <a href="/Nieuwsbrieven/Aanmelden" class="btn btn-primary">Aanmelden</a>
     </div>
+@endsection
+
+@section('footer')
+    @include('web.layouts.footer')
 @endsection

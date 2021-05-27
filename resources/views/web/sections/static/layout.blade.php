@@ -1,14 +1,9 @@
-@php
-    $active = $active ?? '';
-    $activeSub = $activeSub ?? '';
-    $activePage = $activePage ?? '';
-@endphp
 <!DOCTYPE html>
 <html lang="nl">
     @include('web.layouts.head')
 
     <body>
-        @include('web.layouts.header')
+        @yield('header')
 
         <main class="container" role="main">
             <div class="pb-3">
@@ -16,6 +11,6 @@
             </div>
         </main>
 
-        @include('web.layouts.footer')
+        @yield('footer')
     </body>
 </html>
