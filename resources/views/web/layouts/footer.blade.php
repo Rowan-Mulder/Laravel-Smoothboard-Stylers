@@ -1,3 +1,8 @@
+@php
+    $active = $active ?? '';
+    $activeSub = $activeSub ?? '';
+    $activePage = $activePage ?? '';
+@endphp
 <footer class="border-top footer text-muted">
     <div class="container d-flex justify-content-between">
         <div>
