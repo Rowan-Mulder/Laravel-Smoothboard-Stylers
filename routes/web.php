@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Material;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,13 +14,30 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Voor bezoekers
+
+
+//*/ Voor bezoekers
+// Homepage
 Route::view('/', 'web.sections.static.home');
 
+// Materialen
+Route::get('/Materialen', fn() => view('web.sections.material.index', ['materials' => Material::all()]));
+Route::get('/Materialen/details/{material}', function (Material $material) {
+    return view('web.sections.material.details', [
+        'material' => $material
+    ]);
+});
+Route::get('/Materialen/edit/{material}', function (Material $material) {
+    return view('web.sections.material.edit', [
+        'material' => $material
+    ]);
+});
 
 // Authenticatie voor beheerders
 require __DIR__ . '/auth.php';
 Route::view('/dashboard', 'dashboard')->middleware(['auth'])->name('dashboard');
+//*/
+
 
 
 Route::fallback(function() {
@@ -28,6 +46,9 @@ Route::fallback(function() {
 
 
 
-// Oefeningen en testjes
+
+
+//*/ Oefeningen en testjes
+// [GET]   /welcome
 Route::view('/welcome', 'web.sections.static.welcome');
-});
+//*/
