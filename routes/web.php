@@ -20,6 +20,9 @@ use Illuminate\Support\Facades\Route;
 // Homepage
 Route::view('/', 'web.sections.static.home');
 
+//*/
+
+//*/ Voor beheerders // TODO: Auth Middleware nog toepassen.
 // Materialen
 Route::get('/Materialen', fn() => view('web.sections.material.index', ['materials' => Material::all()]));
 Route::get('/Materialen/details/{material}', function (Material $material) {
