@@ -25,16 +25,8 @@ Route::view('/', 'web.sections.static.home');
 //*/ Voor beheerders // TODO: Auth Middleware nog toepassen.
 // Materialen
 Route::get('/Materialen', fn() => view('web.sections.material.index', ['materials' => Material::all()]));
-Route::get('/Materialen/details/{material}', function (Material $material) {
-    return view('web.sections.material.details', [
-        'material' => $material
-    ]);
-});
-Route::get('/Materialen/edit/{material}', function (Material $material) {
-    return view('web.sections.material.edit', [
-        'material' => $material
-    ]);
-});
+Route::get('/Materialen/details/{material}', fn(Material $material) =>view('web.sections.material.details', ['material' => $material]));
+Route::get('/Materialen/edit/{material}', fn(Material $material) => view('web.sections.material.edit', ['material' => $material]));
 
 // Authenticatie voor beheerders
 require __DIR__ . '/auth.php';
