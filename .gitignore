@@ -21,3 +21,11 @@ Homestead.yaml
 Homestead.json
 /.vagrant
 .phpunit.result.cache
+
+
+# (Tijdelijke) Tests
+resources/no_database_posts
+database/migrations/2021_05_03_122359_create_posts_table.php
+app/Models/no_database_Post.php
+app/Models/Post.php
+resources/views/web/sections/post
