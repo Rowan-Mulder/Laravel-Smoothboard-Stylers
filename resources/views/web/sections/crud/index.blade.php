@@ -40,9 +40,13 @@
                         <td>{{ $index['data'][$i]->$fieldName }}</td>
                     @endfor
                     <td>
-                        <a href="/Materialen/edit/{{ $index['data'][$i]->id }}">Bewerk</a> |
-                        <a href="/Materialen/details/{{ $index['data'][$i]->id }}">Details</a> |
-                        <a href="/Materialen/delete/{{ $index['data'][$i]->id }}">Verwijder</a>
+                        <a href="/{{ $index['modelName']['plural'] }}/{{ $index['data'][$i]->id }}/edit">Bewerk</a> |
+                        <a href="/{{ $index['modelName']['plural'] }}/{{ $index['data'][$i]->id }}">Details</a> |
+                        <form action="/{{ $index['modelName']['plural'] }}/{{ $index['data'][$i]->id }}" method="POST" class="d-inline-block">
+                            @csrf
+                            @method('DELETE')
+                            <button class="btnLink">Verwijder</button>
+                        </form>
                     </td>
                 </tr>
             @endfor
