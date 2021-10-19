@@ -1,6 +1,7 @@
 <?php
 
 use App\Models\Material;
+use App\Http\Controllers\PagesController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,7 +19,7 @@ use Illuminate\Support\Facades\Route;
 
 //*/ Voor bezoekers
 // Homepage
-Route::view('/', 'web.sections.static.home');
+Route::get('/', [PagesController::class, 'home']);
 
 //*/
 
