@@ -22,6 +22,9 @@ Homestead.json
 /.vagrant
 .phpunit.result.cache
 
+# Gegenereerde bestanden door Laravel-Mix
+resources/js
+resources/css
 
 # (Tijdelijke) Tests
 resources/no_database_posts
