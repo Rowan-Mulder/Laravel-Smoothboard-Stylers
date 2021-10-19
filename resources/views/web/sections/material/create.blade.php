@@ -1,7 +1,7 @@
 @extends('web.sections.crud.create')
 
 @php
-    $create = [
+    $data = [
         'modelName' => [
             'system' => 'Material',
             'singular' => 'Materiaal',

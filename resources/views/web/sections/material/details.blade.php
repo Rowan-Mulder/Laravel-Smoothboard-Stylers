@@ -2,7 +2,7 @@
 
 @php
     /* @var $material */
-    $details = [
+    $data = [
         'modelName' => [
             'system' => 'Material',
             'singular' => 'Materiaal',

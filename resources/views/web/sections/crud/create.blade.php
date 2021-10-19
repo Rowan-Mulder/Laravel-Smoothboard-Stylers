@@ -1,5 +1,5 @@
 @php
-    $create = $create ?? [];
+    $data = $data ?? [];
 @endphp
 
 @extends('web.sections.static.layout')
@@ -8,10 +8,10 @@
     @include('web.layouts.header')
 @endsection
 
-@section('title', "Create - {$create['modelName']['singular']}")
+@section('title', "Create - {$data['modelName']['singular']}")
 
 @section('content')
-    <h1 class="display-4 font-weight-bold">{{ $create['modelName']['singular'] }}</h1>
+    <h1 class="display-4 font-weight-bold">{{ $data['modelName']['singular'] }}</h1>
     <h4>Aanmaken</h4>
 
     <hr />
@@ -29,13 +29,13 @@
 
     <div class="row">
         <div class="col-md-4">
-            <form action="/{{ $create['modelName']['plural'] }}" method="POST">
+            <form action="/{{ $data['modelName']['plural'] }}" method="POST">
                 @csrf
                 @method('POST')
-                @for ($i = 0; $i < count($create['fieldNames']); $i++)
+                @for ($i = 0; $i < count($data['fieldNames']); $i++)
                     <div class="form-group">
-                        <label for="{{ $create['fieldNames'][$i] }}" class="control-label">{{ ucfirst($create['fieldNames'][$i]) }}</label>
-                        <input id="{{ $create['fieldNames'][$i] }}" name="{{ $create['fieldNames'][$i] }}" class="form-control" />
+                        <label for="{{ $data['fieldNames'][$i] }}" class="control-label">{{ ucfirst($data['fieldNames'][$i]) }}</label>
+                        <input id="{{ $data['fieldNames'][$i] }}" name="{{ $data['fieldNames'][$i] }}" class="form-control" />
                     </div>
                 @endfor
 
@@ -47,7 +47,7 @@
     </div>
 
     <div>
-        <a href="/{{ $create['modelName']['plural'] }}">Terug naar {{ $create['modelName']['plural'] }}</a>
+        <a href="/{{ $data['modelName']['plural'] }}">Terug naar {{ $data['modelName']['plural'] }}</a>
     </div>
 @endsection
 

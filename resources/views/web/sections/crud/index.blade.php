@@ -1,5 +1,5 @@
 @php
-    $index = $index ?? [];
+    $data = $data ?? [];
 @endphp
 
 @extends('web.sections.static.layout')
@@ -8,10 +8,10 @@
     @include('web.layouts.header')
 @endsection
 
-@section('title', $index['modelName']['plural'])
+@section('title', $data['modelName']['plural'])
 
 @section('content')
-    <h1 class="display-4 font-weight-bold">{{ $index['modelName']['singular'] }}</h1>
+    <h1 class="display-4 font-weight-bold">{{ $data['modelName']['singular'] }}</h1>
 
     <p>
         <a href="/Materialen/create">Nieuw aanmaken</a>
@@ -26,29 +26,29 @@
     <table class="table">
         <thead>
             <tr>
-                @for ($x = 0; $x < count($index['fieldNames']); $x++)
+                @for ($x = 0; $x < count($data['fieldNames']); $x++)
                     <th>
-                        {{ ucfirst($index['fieldNames'][$x]) }}
+                        {{ ucfirst($data['fieldNames'][$x]) }}
                     </th>
                 @endfor
                 <th></th>
             </tr>
         </thead>
         <tbody>
-            @for ($i = 0; $i < count($index['data']); $i++)
+            @for ($i = 0; $i < count($data['data']); $i++)
                 <tr>
-                    @for ($x = 0; $x < count($index['fieldNames']); $x++)
+                    @for ($x = 0; $x < count($data['fieldNames']); $x++)
                         @php
-                            /* @var $index */
+                            /* @var $data */
                             /* @var $x */
-                            $fieldName = $index['fieldNames'][$x];
+                            $fieldName = $data['fieldNames'][$x];
                         @endphp
-                        <td>{{ $index['data'][$i]->$fieldName }}</td>
+                        <td>{{ $data['data'][$i]->$fieldName }}</td>
                     @endfor
                     <td>
-                        <a href="/{{ $index['modelName']['plural'] }}/{{ $index['data'][$i]->id }}/edit">Bewerk</a> |
-                        <a href="/{{ $index['modelName']['plural'] }}/{{ $index['data'][$i]->id }}">Details</a> |
-                        <form action="/{{ $index['modelName']['plural'] }}/{{ $index['data'][$i]->id }}" method="POST" class="d-inline-block">
+                        <a href="/{{ $data['modelName']['plural'] }}/{{ $data['data'][$i]->id }}/edit">Bewerk</a> |
+                        <a href="/{{ $data['modelName']['plural'] }}/{{ $data['data'][$i]->id }}">Details</a> |
+                        <form action="/{{ $data['modelName']['plural'] }}/{{ $data['data'][$i]->id }}" method="POST" class="d-inline-block">
                             @csrf
                             @method('DELETE')
                             <button class="btnLink">Verwijder</button>
@@ -60,7 +60,7 @@
     </table>
 
     <div>
-        <a href="/{{ $index['modelName']['plural'] }}">Terug naar {{ $index['modelName']['plural'] }}</a>
+        <a href="/{{ $data['modelName']['plural'] }}">Terug naar {{ $data['modelName']['plural'] }}</a>
     </div>
 @endsection
 

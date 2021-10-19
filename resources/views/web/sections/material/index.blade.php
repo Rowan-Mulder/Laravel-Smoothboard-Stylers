@@ -2,7 +2,7 @@
 
 @php
     /* @var $materials */
-    $index = [
+    $data = [
         'modelName' => [
             'system' => 'Material',
             'singular' => 'Materiaal',

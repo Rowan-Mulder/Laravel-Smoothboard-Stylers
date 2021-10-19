@@ -1,5 +1,5 @@
 @php
-    $edit = $edit ?? [];
+    $data = $data ?? [];
 @endphp
 
 @extends('web.sections.static.layout')
@@ -8,10 +8,10 @@
     @include('web.layouts.header')
 @endsection
 
-@section('title', "Edit - {$edit['modelName']['singular']} {$edit['data']->id}")
+@section('title', "Edit - {$data['modelName']['singular']} {$data['data']->id}")
 
 @section('content')
-    <h1 class="display-4 font-weight-bold">{{ $edit['modelName']['singular'] }}</h1>
+    <h1 class="display-4 font-weight-bold">{{ $data['modelName']['singular'] }}</h1>
     <h4>Bewerken</h4>
 
     <hr />
@@ -29,13 +29,13 @@
 
     <div class="row">
         <div class="col-md-4">
-            <form action="/{{ $edit['modelName']['plural'] }}/{{ $edit['data']->id }}" method="POST">
+            <form action="/{{ $data['modelName']['plural'] }}/{{ $data['data']->id }}" method="POST">
                 @csrf
                 @method('PUT')
-                @for ($i = 0; $i < count($edit['fieldNames']); $i++)
+                @for ($i = 0; $i < count($data['fieldNames']); $i++)
                     <div class="form-group">
-                        <label for="{{ $edit['fieldNames'][$i] }}" class="control-label">{{ ucfirst($edit['fieldNames'][$i]) }}</label>
-                        <input id="{{ $edit['fieldNames'][$i] }}" name="{{ $edit['fieldNames'][$i] }}" value="{{ $edit['data']->name }}" class="form-control" />
+                        <label for="{{ $data['fieldNames'][$i] }}" class="control-label">{{ ucfirst($data['fieldNames'][$i]) }}</label>
+                        <input id="{{ $data['fieldNames'][$i] }}" name="{{ $data['fieldNames'][$i] }}" value="{{ $data['data']->name }}" class="form-control" />
                     </div>
                 @endfor
                 <div class="form-group">
@@ -46,7 +46,7 @@
     </div>
 
     <div>
-        <a href="/{{ $edit['modelName']['plural'] }}">Terug naar {{ $edit['modelName']['plural'] }}</a>
+        <a href="/{{ $data['modelName']['plural'] }}">Terug naar {{ $data['modelName']['plural'] }}</a>
     </div>
 @endsection
 

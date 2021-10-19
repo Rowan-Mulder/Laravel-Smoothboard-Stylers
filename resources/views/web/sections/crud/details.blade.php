@@ -1,5 +1,5 @@
 @php
-    $details = $details ?? [];
+    $data = $data ?? [];
 @endphp
 
 @extends('web.sections.static.layout')
@@ -8,34 +8,34 @@
     @include('web.layouts.header')
 @endsection
 
-@section('title', "{$details['modelName']['singular']} {$details['data']->id}")
+@section('title', "{$data['modelName']['singular']} {$data['data']->id}")
 
 @section('content')
-    <h1 class="display-4 font-weight-bold">{{ $details['modelName']['singular'] }}</h1>
+    <h1 class="display-4 font-weight-bold">{{ $data['modelName']['singular'] }}</h1>
     <h4>Details</h4>
 
     <hr />
 
     <div>
         <dl class="row">
-            @for ($i = 0; $i < count($details['fieldNames']); $i++)
+            @for ($i = 0; $i < count($data['fieldNames']); $i++)
                 @php
-                    /* @var $details */
+                    /* @var $data */
                     /* @var $i */
-                    $fieldName = $details['fieldNames'][$i];
+                    $fieldName = $data['fieldNames'][$i];
                 @endphp
                 <dt class="col-sm-2">
-                    {{ ucfirst($details['fieldNames'][$i]) }}
+                    {{ ucfirst($data['fieldNames'][$i]) }}
                 </dt>
                 <dd class="col-sm-10">
-                    {{ $details['data']->$fieldName }}
+                    {{ $data['data']->$fieldName }}
                 </dd>
             @endfor
         </dl>
     </div>
     <div>
-        <a href="/{{ $details['modelName']['plural'] }}/{{ $details['data']->id }}/edit">Bewerk</a> |
-        <a href="/{{ $details['modelName']['plural'] }}">Terug naar {{ $details['modelName']['plural'] }}</a>
+        <a href="/{{ $data['modelName']['plural'] }}/{{ $data['data']->id }}/edit">Bewerk</a> |
+        <a href="/{{ $data['modelName']['plural'] }}">Terug naar {{ $data['modelName']['plural'] }}</a>
     </div>
 @endsection
 
