@@ -16,23 +16,24 @@
 
     <hr />
 
-    <div>
-        <dl class="row">
-            @for ($i = 0; $i < count($edit['fieldNames']); $i++)
-                @php
-                    /* @var $edit */
-                    /* @var $i */
-                    $fieldName = $edit['fieldNames'][$i];
-                @endphp
-                <dt class="col-sm-2">
-                    {{ ucfirst($edit['fieldNames'][$i]) }}
-                </dt>
-                <dd class="col-sm-10">
-                    {{ $edit['data']->$fieldName }}
-                </dd>
-            @endfor
-        </dl>
+    <div class="row">
+        <div class="col-md-4">
+            <form action="/{{ $edit['modelName']['plural'] }}/{{ $edit['data']->id }}" method="POST">
+                @csrf
+                @method('PUT')
+                @for ($i = 0; $i < count($edit['fieldNames']); $i++)
+                    <div class="form-group">
+                        <label for="{{ $edit['fieldNames'][$i] }}" class="control-label">{{ ucfirst($edit['fieldNames'][$i]) }}</label>
+                        <input id="{{ $edit['fieldNames'][$i] }}" name="{{ $edit['fieldNames'][$i] }}" value="{{ $edit['data']->name }}" class="form-control" />
+                    </div>
+                @endfor
+                <div class="form-group">
+                    <input type="submit" value="Opslaan" class="btn btn-primary" />
+                </div>
+            </form>
+        </div>
     </div>
+
     <div>
         <a href="/{{ $edit['modelName']['plural'] }}">Terug naar {{ $edit['modelName']['plural'] }}</a>
     </div>
