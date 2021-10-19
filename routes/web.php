@@ -25,9 +25,7 @@ Route::get('/', [PagesController::class, 'home']);
 
 //*/ Voor beheerders // TODO: Auth Middleware nog toepassen.
 // Materialen
-Route::get('/Materialen', fn() => view('web.sections.material.index', ['materials' => Material::all()]));
-Route::get('/Materialen/details/{material}', fn(Material $material) =>view('web.sections.material.details', ['material' => $material]));
-Route::get('/Materialen/edit/{material}', fn(Material $material) => view('web.sections.material.edit', ['material' => $material]));
+Route::resource('Materialen', MaterialsController::class)->parameters(['Materialen' => 'material']); // parameters() overwrite de route placeholder name, te zien tussen {} in 'php artisan route:list'. Dit heeft effect in MaterialenController voor parameter objectnamen, aangezien we de Nederlandse routings willen behouden.
 
 // Authenticatie voor beheerders
 require __DIR__ . '/auth.php';
