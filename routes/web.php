@@ -1,6 +1,7 @@
 <?php
 
 use App\Models\Material;
+use App\Http\Controllers\MaterialsController;
 use App\Http\Controllers\PagesController;
 use Illuminate\Support\Facades\Route;
 
