@@ -34,7 +34,7 @@
         </dl>
     </div>
     <div>
-        <a href="/{{ $details['modelName']['plural'] }}/edit/{{ $details['data']->id }}">Bewerk</a> |
+        <a href="/{{ $details['modelName']['plural'] }}/{{ $details['data']->id }}/edit">Bewerk</a> |
         <a href="/{{ $details['modelName']['plural'] }}">Terug naar {{ $details['modelName']['plural'] }}</a>
     </div>
 @endsection
