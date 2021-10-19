@@ -17,6 +17,12 @@
         <a href="/Materialen/create">Nieuw aanmaken</a>
     </p>
 
+    @if (session('successMsg'))
+        <div class="alert alert-success">
+            {{ session('successMsg') }}
+        </div>
+    @endif
+
     <table class="table">
         <thead>
             <tr>
