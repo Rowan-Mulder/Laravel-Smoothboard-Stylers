@@ -12,7 +12,7 @@
 
 @section('content')
     <h1 class="display-4 font-weight-bold">{{ $edit['modelName']['singular'] }}</h1>
-    <h4>Edit</h4>
+    <h4>Bewerken</h4>
 
     <hr />
 
