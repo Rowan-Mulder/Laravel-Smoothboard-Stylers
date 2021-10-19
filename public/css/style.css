@@ -78,3 +78,17 @@ body {
     background: #f8f9fa;
 }
 
+/* Slight difference to Bootstrap's btn-link class
+-------------------------------------------------- */
+.btnLink {
+    background: none !important;
+    border: none;
+    padding: 0 !important;
+    color: rgb(0, 86, 179);
+    cursor: pointer;
+}
+
+.btnLink:hover {
+    text-decoration: underline;
+}
+
