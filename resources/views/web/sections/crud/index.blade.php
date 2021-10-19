@@ -14,7 +14,7 @@
     <h1 class="display-4 font-weight-bold">{{ $data['modelName']['singular'] }}</h1>
 
     <p>
-        <a href="/Materialen/create">Nieuw aanmaken</a>
+        <a href="/{{ $data['modelName']['plural'] }}/create">Nieuw aanmaken</a>
     </p>
 
     @if (session('successMsg'))
