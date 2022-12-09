@@ -7,12 +7,16 @@ use Illuminate\Database\Seeder;
 class DatabaseSeeder extends Seeder
 {
     /**
-     * Seed the application's database.
+     * Run the database seeders.
      *
      * @return void
      */
-    public function run()
+    public function run() // php artisan db:seed
     {
-        // \App\Models\User::factory(10)->create();
+        $this->call([
+            UserSeeder::class,
+            MaterialSeeder::class,
+            SurfboardModelTypeSeeder::class,
+        ]);
     }
 }
