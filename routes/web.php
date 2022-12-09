@@ -2,7 +2,7 @@
 
 use App\Models\Material;
 use App\Http\Controllers\MaterialsController;
-use App\Http\Controllers\PagesController;
+use App\Http\Controllers\PageController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -20,7 +20,7 @@ use Illuminate\Support\Facades\Route;
 
 //*/ Voor bezoekers
 // Homepage
-Route::get('/', [PagesController::class, 'home']);
+Route::get('/', [PageController::class, 'home']);
 
 //*/
 
