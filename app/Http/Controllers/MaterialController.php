@@ -38,7 +38,7 @@ class MaterialController extends Controller
     public function store(Request $request)
     {
         $data = $request->validate([
-            'name' => 'required|unique:Materials|max:255',
+            'name' => 'required|unique:materials|max:255',
         ]);
 
         Material::create($data);
@@ -82,7 +82,7 @@ class MaterialController extends Controller
     public function update(Request $request, Material $material)
     {
         $data = $request->validate([
-            'name' => 'required|unique:Materials|max:255',
+            'name' => 'required|unique:materials|max:255',
         ]);
 
         $material->update($data);
