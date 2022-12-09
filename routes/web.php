@@ -1,7 +1,7 @@
 <?php
 
 use App\Models\Material;
-use App\Http\Controllers\MaterialsController;
+use App\Http\Controllers\MaterialController;
 use App\Http\Controllers\PageController;
 use Illuminate\Support\Facades\Route;
 
@@ -26,7 +26,7 @@ Route::get('/', [PageController::class, 'home']);
 
 //*/ Voor beheerders // TODO: Auth Middleware nog toepassen.
 // Materialen
-Route::resource('Materialen', MaterialsController::class)->parameters(['Materialen' => 'material']); // parameters() overwrite de route placeholder name, te zien tussen {} in 'php artisan route:list'. Dit heeft effect in MaterialenController voor parameter objectnamen, aangezien we de Nederlandse routings willen behouden.
+Route::resource('Materialen', MaterialController::class)->parameters(['Materialen' => 'material']); // parameters() overwrite de route placeholder name, te zien tussen {} in 'php artisan route:list'. Dit heeft effect in MaterialenController voor parameter objectnamen, aangezien we de Nederlandse routings willen behouden.
 
 // Authenticatie voor beheerders
 require __DIR__ . '/auth.php';

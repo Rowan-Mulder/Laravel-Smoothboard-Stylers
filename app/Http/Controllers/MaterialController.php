@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Material;
 
-class MaterialsController extends Controller
+class MaterialController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -43,7 +43,7 @@ class MaterialsController extends Controller
 
         Material::create($data);
 
-        return redirect()->action([MaterialsController::class, 'index']);
+        return redirect()->action([MaterialController::class, 'index']);
     }
 
     /**
@@ -87,7 +87,7 @@ class MaterialsController extends Controller
 
         $material->update($data);
 
-        return redirect()->action([MaterialsController::class, 'index']);
+        return redirect()->action([MaterialController::class, 'index']);
     }
 
     /**
@@ -101,6 +101,6 @@ class MaterialsController extends Controller
         //$material = Material::find($id);// In het geval dat route-model binding niet werkt
         $material->delete();
 
-        return redirect()->action([MaterialsController::class, 'index'])->with('successMsg', 'Materiaal ' . $material->name . ' is verwijderd.');
+        return redirect()->action([MaterialController::class, 'index'])->with('successMsg', 'Materiaal ' . $material->name . ' is verwijderd.');
     }
 }
