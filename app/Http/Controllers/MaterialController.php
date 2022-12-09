@@ -65,10 +65,10 @@ class MaterialController extends Controller
      * @param  \App\Models\Material  $material
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Material $material)
     {
         return view('web.sections.material.edit', [
-            'material' => Material::findOrFail($id)
+            'material' => $material
         ]);
     }
 
