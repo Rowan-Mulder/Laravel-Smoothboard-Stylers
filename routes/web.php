@@ -1,6 +1,5 @@
 <?php
 
-use App\Models\Material;
 use App\Http\Controllers\MaterialController;
 use App\Http\Controllers\SurfboardModelTypeController;
 use App\Http\Controllers\PageController;
