@@ -11,7 +11,7 @@
 @section('title', $data['modelName']['plural'])
 
 @section('content')
-    <h1 class="display-4 font-weight-bold">{{ $data['modelName']['singular'] }}</h1>
+    <h1 class="display-4 font-weight-bold">{{ $data['modelName']['plural'] }}</h1>
 
     <p>
         <a href="/{{ $data['modelName']['plural'] }}/create">Nieuw aanmaken</a>
