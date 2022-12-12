@@ -58,10 +58,6 @@
             @endfor
         </tbody>
     </table>
-
-    <div>
-        <a href="/{{ $data['modelName']['plural'] }}">Terug naar {{ $data['modelName']['plural'] }}</a>
-    </div>
 @endsection
 
 @section('footer')
