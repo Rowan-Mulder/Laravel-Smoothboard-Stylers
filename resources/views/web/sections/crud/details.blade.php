@@ -1,5 +1,6 @@
 @php
-    $data = $data ?? [];
+    /* @var $data */
+    /* @var $crudModel */
 @endphp
 
 @extends('web.sections.static.layout')
@@ -8,34 +9,29 @@
     @include('web.layouts.header')
 @endsection
 
-@section('title', "{$data['modelName']['singular']} {$data['data']->id}")
+@section('title', __($crudModel . '.display.singular') . ' ' . $data->id)
 
 @section('content')
-    <h1 class="display-4 font-weight-bold">{{ $data['modelName']['singular'] }}</h1>
+    <h1 class="display-4 font-weight-bold">{{ __($crudModel . '.display.singular') }}</h1>
     <h4>Details</h4>
 
     <hr />
 
     <div>
         <dl class="row">
-            @for ($i = 0; $i < count($data['fieldNames']); $i++)
-                @php
-                    /* @var $data */
-                    /* @var $i */
-                    $fieldName = $data['fieldNames'][$i];
-                @endphp
-                <dt class="col-sm-2">
-                    {{ ucfirst($data['fieldNames'][$i]) }}
+            @for ($i = 0; $i < count(__($crudModel . '.fields')); $i++)
+                <dt class="col-lg-3">
+                    {{ formatField(__($crudModel . '.fields')[$i]) }}
                 </dt>
-                <dd class="col-sm-10">
-                    {{ $data['data']->$fieldName }}
+                <dd class="col-lg-9">
+                    {{ $data[__($crudModel . '.fields')[$i]] }}
                 </dd>
             @endfor
         </dl>
     </div>
     <div>
-        <a href="/{{ $data['modelName']['plural'] }}/{{ $data['data']->id }}/edit">Bewerk</a> |
-        <a href="/{{ $data['modelName']['plural'] }}">Terug naar {{ $data['modelName']['plural'] }}</a>
+        <a href="{{ route(__($crudModel . '.route') . '.edit', $data->id) }}">Bewerk</a> |
+        <a href="{{ route(__($crudModel . '.route')) }}">Terug naar {{ __($crudModel . '.display.plural') }}</a>
     </div>
 @endsection
 

@@ -101,6 +101,6 @@ class MaterialController extends Controller
         //$material = Material::find($id);// In het geval dat route-model binding niet werkt
         $material->delete();
 
-        return redirect()->action([MaterialController::class, 'index'])->with('successMsg', 'Materiaal ' . $material->name . ' is verwijderd.');
+        return redirect()->action([MaterialController::class, 'index'])->with('successMsg', 'Material ' . $material->name . ' has been removed.');
     }
 }

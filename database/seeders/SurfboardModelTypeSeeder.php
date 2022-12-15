@@ -15,9 +15,9 @@ class SurfboardModelTypeSeeder extends Seeder
     public function run() // php artisan db:seed --class=SurfboardModelTypeSeeder
     {
         DB::table('surfboard_model_types')->insert([
-            ['name' => 'Rondvormig' /*, 'created_at' => now(), */ /* 'updated_at' => now(), */],
-            ['name' => 'Rechthoekig'],
-            ['name' => 'Puntig'],
+            ['name' => 'Round' /*, 'created_at' => now(), */ /* 'updated_at' => now(), */],
+            ['name' => 'Square'],
+            ['name' => 'Triangular'],
         ]);
     }
 }

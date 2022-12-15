@@ -15,8 +15,8 @@ class MaterialSeeder extends Seeder
     public function run() // php artisan db:seed --class=MaterialSeeder
     {
         DB::table('materials')->insert([
-            ['name' => 'Koahout' /*, 'created_at' => now(), */ /* 'updated_at' => now(), */],
-            ['name' => 'Polystyreen'],
+            ['name' => 'Koa wood' /*, 'created_at' => now(), */ /* 'updated_at' => now(), */],
+            ['name' => 'Polystyrene'],
             ['name' => 'Kevlar'],
             ['name' => 'Carbon Fiber'],
             ['name' => 'Epoxy'],

@@ -1,7 +1,7 @@
 @extends('web.sections.static.layout')
 
 @push('meta')
-    <meta name="description" content="Deze website is een recreatie van Smoothboard Stylers, maar in Laravel.">
+    <meta name="description" content="{{ __('messages.This website is a recreation of Smoothboard Stylers, but in Laravel.') }}">
 @endpush
 
 @section('title', "Home Page")
@@ -21,8 +21,8 @@
 
 @section('content')
     <div class="text-center">
-        <h1 class="display-4 font-weight-bold">Smoothboard Stylers</h1>
-        <p class="font-italic">Spicin' up your board</p>
+        <h1 class="display-4 font-weight-bold">{{ __('messages.Smoothboard Stylers') }}</h1>
+        <p class="font-italic">{{ __('Spicin\' up your board') }}</p>
     </div>
 
     <!-- Homepage SVG Logo -->
@@ -186,9 +186,9 @@
     <hr />
 
     <div class="card-body">
-        <h5 class="card-title font-weight-bold">Nieuwsbrieven</h5>
-        <p class="card-text">Voor alle recentelijke informatie kun je je aanmelden voor onze driemaandelijkse nieuwsbrieven. Mis geen updates of aanbiedingen en meld je direct aan!</p>
-        <a href="/Nieuwsbrieven/Aanmelden" class="btn btn-primary">Aanmelden</a>
+        <h5 class="card-title font-weight-bold">{{ __('messages.Newsletters') }}</h5>
+        <p class="card-text">{{ __('messages.For all the latest information, sign up for our quarterly newsletters. Don\'t miss any updates or offers and sign up right away!') }}</p>
+        <a href="#newsletters/subscribe{{ '' /*route('newsletters.subscribe')*/ }}" class="btn btn-primary">{{ __('messages.Sign up') }}</a>
     </div>
 @endsection
 

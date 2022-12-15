@@ -1,5 +1,6 @@
 @php
-    $data = $data ?? [];
+    /* @var $data */
+    /* @var $crudModel */
 @endphp
 
 @extends('web.sections.static.layout')
@@ -8,13 +9,13 @@
     @include('web.layouts.header')
 @endsection
 
-@section('title', $data['modelName']['plural'])
+@section('title', __($crudModel . '.display.plural'))
 
 @section('content')
-    <h1 class="display-4 font-weight-bold">{{ $data['modelName']['plural'] }}</h1>
+    <h1 class="display-4 font-weight-bold">{{ __($crudModel . '.display.plural') }}</h1>
 
     <p>
-        <a href="/{{ $data['modelName']['plural'] }}/create">Nieuw aanmaken</a>
+        <a href="{{ route(__($crudModel . '.route') . '.create') }}">Nieuw aanmaken</a>
     </p>
 
     @if (session('successMsg'))
@@ -26,29 +27,24 @@
     <table class="table">
         <thead>
             <tr>
-                @for ($x = 0; $x < count($data['fieldNames']); $x++)
+                @for ($x = 0; $x < count(__($crudModel . '.fields')); $x++)
                     <th>
-                        {{ ucfirst($data['fieldNames'][$x]) }}
+                        {{ formatField(__($crudModel . '.fields')[$x]) }}
                     </th>
                 @endfor
                 <th></th>
             </tr>
         </thead>
         <tbody>
-            @for ($i = 0; $i < count($data['data']); $i++)
+            @for ($i = 0; $i < count($data); $i++)
                 <tr>
-                    @for ($x = 0; $x < count($data['fieldNames']); $x++)
-                        @php
-                            /* @var $data */
-                            /* @var $x */
-                            $fieldName = $data['fieldNames'][$x];
-                        @endphp
-                        <td>{{ $data['data'][$i]->$fieldName }}</td>
+                    @for ($x = 0; $x < count(__($crudModel . '.fields')); $x++)
+                        <td>{{ $data[$i][__($crudModel . '.fields')[$x]] }}</td>
                     @endfor
                     <td>
-                        <a href="/{{ $data['modelName']['plural'] }}/{{ $data['data'][$i]->id }}/edit">Bewerk</a> |
-                        <a href="/{{ $data['modelName']['plural'] }}/{{ $data['data'][$i]->id }}">Details</a> |
-                        <form action="/{{ $data['modelName']['plural'] }}/{{ $data['data'][$i]->id }}" method="POST" class="d-inline-block">
+                        <a href="{{ route(__($crudModel . '.route') . '.edit', $data[$i]->id) }}">Bewerk</a> |
+                        <a href="{{ route(__($crudModel . '.route') . '.show', $data[$i]->id) }}">Details</a> |
+                        <form action="{{ route(__($crudModel . '.route') . '.destroy', $data[$i]->id) }}" method="POST" class="d-inline-block">
                             @csrf
                             @method('DELETE')
                             <button class="btnLink">Verwijder</button>

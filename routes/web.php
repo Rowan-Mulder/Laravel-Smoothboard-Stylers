@@ -18,20 +18,34 @@ use Illuminate\Support\Facades\Route;
 
 
 
-//*/ Voor bezoekers
+//*/ For visitors
 // Homepage
-Route::get('/', [PageController::class, 'home']);
+Route::get('/', [PageController::class, 'home'])->name('home');
+
+
 
 //*/
 
-//*/ Voor beheerders // TODO: Auth Middleware nog toepassen.
-// Materialen
-Route::resource('Materialen', MaterialController::class)->parameters(['Materialen' => 'material']); // parameters() overwrite de route placeholder name, te zien tussen {} in 'php artisan route:list'. Dit heeft effect in MaterialenController voor parameter objectnamen, aangezien we de Nederlandse routings willen behouden.
 
-// SurfboardModelTypes
-Route::resource('SurfboardModelTypes', SurfboardModelTypeController::class)->parameters(['SurfboardModelTypes' => 'surfboardModelType']);
+//*/ Administrators // TODO: Auth Middleware nog toepassen?
 
-// Authenticatie voor beheerders
+// Materials
+Route::resource('/materials', MaterialController::class, [
+    'names' => [
+        'index' => 'materials',
+//        'store' => 'materials.new',
+//        'edit' => 'materials.edit',
+    ]
+]);
+
+// Surfboard Model Types
+Route::resource('/surfboard-model-types', SurfboardModelTypeController::class, [
+    'names' => [
+        'index' => 'surfboard-model-types',
+    ]
+]);
+
+// Authentication for administrators
 require __DIR__ . '/auth.php';
 Route::view('/dashboard', 'dashboard')->middleware(['auth'])->name('dashboard');
 //*/

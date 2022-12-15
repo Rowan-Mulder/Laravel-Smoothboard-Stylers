@@ -1,19 +1,19 @@
-/* Contactgegevens tabel
+/* Contact info table
 -------------------------------------------------- */
-.gegevensTabel tbody tr:nth-child(2n) {
+.infoTable tbody tr:nth-child(2n) {
     background: #0001;
 }
 
-.gegevensTabel tbody tr:nth-child(2n+1) {
+.infoTable tbody tr:nth-child(2n+1) {
     background: #0003;
 }
 
-.gegevensTabel th {
+.infoTable th {
     background: #000B;
     color: #FFF;
 }
 
-.gegevensTabel th[scope="row"]::after {
+.infoTable th[scope="row"]::after {
     content: ":";
     padding-right: 15px;
 }

@@ -98,6 +98,6 @@ class SurfboardModelTypeController extends Controller
     {
         $surfboardModelType->delete();
 
-        return redirect()->action([SurfboardModelTypeController::class, 'index'])->with('successMsg', 'Surfboard model type ' . $surfboardModelType->name . ' is verwijderd.');
+        return redirect()->action([SurfboardModelTypeController::class, 'index'])->with('successMsg', 'Surfboard model type ' . $surfboardModelType->name . ' has been removed.');
     }
 }

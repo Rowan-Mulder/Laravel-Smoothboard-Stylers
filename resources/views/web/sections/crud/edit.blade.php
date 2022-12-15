@@ -1,5 +1,6 @@
 @php
-    $data = $data ?? [];
+    /* @var $data */
+    /* @var $crudModel */
 @endphp
 
 @extends('web.sections.static.layout')
@@ -8,10 +9,10 @@
     @include('web.layouts.header')
 @endsection
 
-@section('title', "Edit - {$data['modelName']['singular']} {$data['data']->id}")
+@section('title', 'Edit - ' . __($crudModel . '.display.singular') . ' ' . $data->id)
 
 @section('content')
-    <h1 class="display-4 font-weight-bold">{{ $data['modelName']['singular'] }}</h1>
+    <h1 class="display-4 font-weight-bold">{{ __($crudModel . '.display.singular') }}</h1>
     <h4>Bewerken</h4>
 
     <hr />
@@ -29,13 +30,13 @@
 
     <div class="row">
         <div class="col-md-4">
-            <form action="/{{ $data['modelName']['plural'] }}/{{ $data['data']->id }}" method="POST">
+            <form action="{{ route(__($crudModel . '.route') . '.update', $data->id) }}" method="POST">
                 @csrf
                 @method('PUT')
-                @for ($i = 0; $i < count($data['fieldNames']); $i++)
+                @for ($i = 0; $i < count(__($crudModel . '.fields')); $i++)
                     <div class="form-group">
-                        <label for="{{ $data['fieldNames'][$i] }}" class="control-label">{{ ucfirst($data['fieldNames'][$i]) }}</label>
-                        <input id="{{ $data['fieldNames'][$i] }}" name="{{ $data['fieldNames'][$i] }}" value="{{ $data['data']->name }}" class="form-control" />
+                        <label for="{{ __($crudModel . '.fields')[$i] }}" class="control-label">{{ formatField(__($crudModel . '.fields')[$i]) }}</label>
+                        <input id="{{ __($crudModel . '.fields')[$i] }}" name="{{ __($crudModel . '.fields')[$i] }}" value="{{ $data[__($crudModel . '.fields')[$i]] }}" class="form-control" />
                     </div>
                 @endfor
                 <div class="form-group">
@@ -46,7 +47,7 @@
     </div>
 
     <div>
-        <a href="/{{ $data['modelName']['plural'] }}">Terug naar {{ $data['modelName']['plural'] }}</a>
+        <a href="{{ route(__($crudModel . '.route')) }}">Terug naar {{ __($crudModel . '.display.plural') }}</a>
     </div>
 @endsection
 

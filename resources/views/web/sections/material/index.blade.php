@@ -1,16 +1,10 @@
 @extends('web.sections.crud.index')
 
 @php
+    use App\Models\Material;
+
     /* @var $materials */
-    $data = [
-        'modelName' => [
-            'system' => 'Material',
-            'singular' => 'Materiaal',
-            'plural' => 'Materialen'
-        ],
-        'fieldNames' => [
-            'name'
-        ],
-        'data' => $materials
-    ];
+    $data = $materials;
+
+    $crudModel = 'crud.' . Material::class;
 @endphp

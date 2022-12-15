@@ -1,30 +1,30 @@
 <ul class="nav nav-pills">
     @auth
         <li class="nav-item">
-            <a href="/dashboard" class="nav-link text-dark" title="Beheren van accountprofiel">{{ Auth::user()->email }}</a>
+            <a href="{{ route('dashboard') }}" class="nav-link text-dark" title="{{ __('messages.Manage account profile') }}">{{ Auth::user()->email }}</a>
         </li>
     @endauth
 
     <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle @if($active == 'Beheer') active @endif " data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false" title="Het menu voor beheerders">Beheer</a>
+        <a class="nav-link dropdown-toggle @if($active == 'beheer') active @endif " data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false" title="{{ __('messages.The administrator menu') }}">{{ __('messages.Manage') }}</a>
         <div class="dropdown-menu">
             @auth
-                <a href="/dashboard" class="dropdown-item @if($activePage == 'Index') active @endif " title="Beheren van accountprofiel">Account</a>
+                <a href="{{ route('dashboard') }}" class="dropdown-item @if($activePage == 'index') active @endif " title="{{ __('messages.Manage account profile') }}">{{ __('messages.Account') }}</a>
                 <div class="dropdown-divider"></div>
 
-                @auth{{--('Beheerder')--}}
-                    <p class="ml-2 text-muted font-italic font-weight-bold">Surfboards</p>
-                    <a href="/Surfboards" class="dropdown-item @if($activeSub == 'Surfboards') active @endif " title="Beheren van surfboards">Surfboards</a>
-                    <a href="/Materialen" class="dropdown-item @if($activeSub == 'Materialen') active @endif " title="Beheren van surfboard materialen">Materialen</a>
-                    <a href="/SurfboardModelTypes" class="dropdown-item @if($activeSub == 'SurfboardModelTypes') active @endif " title="Beheren van surfboard model types">Surfboard Model Types</a>
-                    <a href="/Geïnteresseerden" class="dropdown-item @if($activeSub == 'Geïnteresseerden') active @endif " title="Beheren van geïnteresseerden">Geïnteresseerden</a>
+                @auth {{-- Admin --}}
+                    <p class="ml-2 text-muted font-italic font-weight-bold">{{ __('messages.Surfboards') }}</p>
+                    <a href="{{ route('surfboards') }}" class="dropdown-item @if($activeSub == 'surfboards') active @endif " title="{{ __('messages.Manage surfboards') }}">{{ __('messages.Surfboards') }}</a>
+                    <a href="{{ route('materials') }}" class="dropdown-item @if($activeSub == 'materials') active @endif " title="{{ __('messages.Manage surfboard materials') }}">{{ __('messages.Materials') }}</a>
+                    <a href="{{ route('surfboard-model-types') }}" class="dropdown-item @if($activeSub == 'surfboard-model-types') active @endif " title="{{ __('messages.Manage surfboard model types') }}">{{ __('messages.Surfboard Model Types') }}</a>
+                    <a href="{{ route('interested') }}" class="dropdown-item @if($activeSub == 'interested') active @endif " title="{{ __('messages.Manage interested') }}">{{ __('messages.Interested') }}</a>
                     <div class="dropdown-divider"></div>
-                    <p class="ml-2 text-muted font-italic font-weight-bold">Nieuwsbrieven</p>
-                    <a href="/Nieuwsbrieven" class="dropdown-item @if($activeSub == 'Nieuwsbrieven') active @endif " title="Beheren van geprepareerde nieuwsbrieven">Nieuwsbrieven</a>
-                    <a href="/Abonnees" class="dropdown-item @if($activeSub == 'Abonnees') active @endif " title="Beheren van nieuwsbrief abonnees">Abonnees</a>
+                    <p class="ml-2 text-muted font-italic font-weight-bold">{{ __('messages.Newsletters') }}</p>
+                    <a href="{{ route('newsletters') }}" class="dropdown-item @if($activeSub == 'newsletters') active @endif " title="{{ __('messages.Manage prepared newsletters') }}">{{ __('messages.Interested') }}</a>
+                    <a href="{{ route('subscriptions') }}" class="dropdown-item @if($activeSub == 'subscriptions') active @endif " title="{{ __('messages.Manage newsletter subscriptions') }}">{{ __('messages.Subscriptions') }}</a>
                     <div class="dropdown-divider"></div>
-                    <p class="ml-2 text-muted font-italic font-weight-bold">Filialen</p>
-                    <a href="/Filialen" class="dropdown-item @if($activeSub == 'Filialen') active @endif " title="Beheren van filialen en filiaal voorraden">Filialen en voorraden</a>
+                    <p class="ml-2 text-muted font-italic font-weight-bold">{{__('messages.Branches')}}</p>
+                    <a href="{{ route('branches') }}" class="dropdown-item @if($activeSub == 'branches') active @endif " title="{{ __('messages.Manage branches and inventory') }}">{{ __('messages.Branches and inventory') }}</a>
                     <div class="dropdown-divider"></div>
                 @endauth
 
@@ -40,7 +40,7 @@
             @endauth
 
             @guest
-                <a href="/login" class="dropdown-item" title="Inloggen als beheerder">Inloggen</a>
+                <a href="{{ route('login') }}" class="dropdown-item" title="{{ __('messages.Login as admin') }}">{{ __('messages.Login') }}</a>
             @endguest
         </div>
     </li>

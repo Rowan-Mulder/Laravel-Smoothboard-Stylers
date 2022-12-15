@@ -1,5 +1,5 @@
 @php
-    $data = $data ?? [];
+    /* @var $crudModel */
 @endphp
 
 @extends('web.sections.static.layout')
@@ -8,10 +8,10 @@
     @include('web.layouts.header')
 @endsection
 
-@section('title', "Create - {$data['modelName']['singular']}")
+@section('title', 'Create - ' . __($crudModel . '.display.singular'))
 
 @section('content')
-    <h1 class="display-4 font-weight-bold">{{ $data['modelName']['singular'] }}</h1>
+    <h1 class="display-4 font-weight-bold">{{ __($crudModel . '.display.singular') }}</h1>
     <h4>Aanmaken</h4>
 
     <hr />
@@ -29,13 +29,13 @@
 
     <div class="row">
         <div class="col-md-4">
-            <form action="/{{ $data['modelName']['plural'] }}" method="POST">
+            <form action="{{ route(__($crudModel . '.route') . '.store') }}" method="POST">
                 @csrf
                 @method('POST')
-                @for ($i = 0; $i < count($data['fieldNames']); $i++)
+                @for ($i = 0; $i < count(__($crudModel . '.fields')); $i++)
                     <div class="form-group">
-                        <label for="{{ $data['fieldNames'][$i] }}" class="control-label">{{ ucfirst($data['fieldNames'][$i]) }}</label>
-                        <input id="{{ $data['fieldNames'][$i] }}" name="{{ $data['fieldNames'][$i] }}" class="form-control" />
+                        <label for="{{ __($crudModel . '.fields')[$i] }}" class="control-label">{{ formatField(__($crudModel . '.fields')[$i]) }}</label>
+                        <input id="{{ __($crudModel . '.fields')[$i] }}" name="{{ __($crudModel . '.fields')[$i] }}" class="form-control" />
                     </div>
                 @endfor
 
@@ -47,7 +47,7 @@
     </div>
 
     <div>
-        <a href="/{{ $data['modelName']['plural'] }}">Terug naar {{ $data['modelName']['plural'] }}</a>
+        <a href="{{ route(__($crudModel . '.route')) }}">Terug naar {{ __($crudModel . '.display.plural') }}</a>
     </div>
 @endsection
 
