@@ -14,27 +14,27 @@
 
 @keyframes skyOrWaterAnimatie {
     from {
-        fill: #50EDFF;
-        stroke: #00B1FF;
-    }
-    to {
         fill: #D3FF00;
         stroke: #FFB934;
+    }
+    to {
+        fill: #50EDFF;
+        stroke: #00B1FF;
     }
 }
 
 @keyframes zonAnimatie {
     from {
-        transform: translateY(-50px);
+        transform: translateY(50px);
         opacity: 0.01;
-        fill: #FF9;
-        stroke: yellow;
+        fill: #FA0;
+        stroke: #F40;
     }
     to {
         transform: translateY(0);
         opacity: 1;
-        fill: #FA0;
-        stroke: #F40;
+        fill: #FF9;
+        stroke: yellow;
     }
 }
 
